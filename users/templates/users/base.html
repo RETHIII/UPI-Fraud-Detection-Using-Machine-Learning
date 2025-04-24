@@ -1,0 +1,139 @@
+
+<!doctype html>
+<html lang="en">
+<head>
+    <!-- Required meta tags -->
+    <title></title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css">
+    <!-- Bootstrap CSS -->
+     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/css/bootstrap.min.css">
+     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+     <link rel="stylesheet" href="https://assets.codepen.io/7773162/swiper-bundle.min.css">
+     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/boxicons@latest/css/boxicons.min.css">
+     <script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/8.4.2/swiper-bundle.min.js"></script>
+     <script src="https://cdnjs.cloudflare.com/ajax/libs/scrollReveal.js/4.0.9/scrollreveal.min.js"></script>
+    <!-- Font Awesome icons -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css" integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous">
+
+    <title>{% block title %} {% endblock %}</title>
+    <style>
+        .navbar-nav .nav-link {
+            padding-left: .5rem;
+        }
+        .navbar-nav a {
+            color: #000000;
+            transition: all ease 0.5s;
+        }
+        .navbar-nav a:hover,
+        .navbar-nav a:focus,
+        .navbar-nav a:active,
+        .navbar-nav a.hilite {
+            color: #000000;
+            background: #4893d8;
+            border-bottom: 1px #7F7F7F solid;
+        }
+        /* ===== == = === 48em (768px) === = == ===== */
+        @media only screen and (min-width : 48em) {
+            .navbar-nav a:hover,
+            .navbar-nav a:focus,
+            .navbar-nav a:active,
+            .navbar-nav a.hilite {
+                transform: translateY(0.5rem) scaleY(1.2);
+            }
+            .navbar-nav .nav-link {
+                padding-left: 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    
+    <nav class="navbar navbar-expand-sm navbar-light bg-light">
+		<a class="navbar-brand" href="#">UPI FRAUD PREDICTION</a>
+		<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+			<span class="navbar-toggler-icon"></span>
+		</button>
+		<div class="collapse navbar-collapse" id="navbarText">
+			<ul class="d-flex navbar-nav h-100 w-100 text-md-center">
+                {% if user.is_authenticated %}
+				<li class="nav-item flex-fill">
+					<a class="nav-link" href="/"style="color: black;">HOME</a>
+				</li>
+				<li class="nav-item flex-fill">
+					<a class="nav-link" href="{% url 'Basic_report' %}"style="color: black;">REPORT</a>
+				</li>
+				<li class="nav-item flex-fill">
+					<a class="nav-link" href="{% url 'Metrics_report' %}"style="color: black;">METRICS REPORT</a>
+				</li>
+				<li class="nav-item flex-fill">
+					<a class="nav-link" href="{% url 'model' %}"style="color: black;">MODEL</a>
+				</li>
+				<li class="nav-item flex-fill">
+					<a class="nav-link" href="{% url 'model_db' %}"style="color: black;">PREDICT DATABASE</a>
+				</li>
+                <li class="nav-item flex-fill">
+					<a class="nav-link" href="{% url 'users-profile' %}"style="color: black;">USER PROFILE</a>
+				</li>
+				<li class="nav-item flex-fill">
+					<a class="nav-link" href="{% url 'logout_view' %}"style="color: black;">LOGOUT</a>
+				</li>
+				<li class="nav-item flex-fill">
+					<h1 class="nav-link" style="font-size: 20px; left: 300px;">Welcome, {{user.first_name.title|default:'Guest'}}</h1>
+				</li>
+				
+                {% else %}
+				<li class="nav-item flex-fill">
+					<a class="nav-link" href="{% url 'login' %}">LOGIN</a>
+				</li>
+                <li class="nav-item flex-fill">
+					<h1 class="nav-link" style="font-size: 20px; left: 300px;">Welcome, {{user.first_name.title|default:'Guest'}}</h1>
+				</li>
+                {% endif %}
+			</ul>
+		</div>
+	</nav>
+
+
+                       
+
+
+
+            
+
+
+
+
+
+
+
+
+
+    
+
+
+    <div class="container p-3 my-3">
+        <div class="row">
+            <div class="col-md-12">
+                {% if messages %}
+                    <div class="alert alert-dismissible" role="alert">
+                        {% for message in messages %}
+                            <div class="alert alert-{{ message.tags }}">{{ message }}</div>
+                        {% endfor %}
+                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                {% endif %}
+                {% block content %}{% endblock %}
+            </div>
+        </div>
+    </div>
+
+    
+</body>
+
+</html>

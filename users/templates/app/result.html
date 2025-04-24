@@ -1,0 +1,181 @@
+{% extends 'users/base.html' %}
+{% load static %}
+{% block content %}
+
+<style>
+  body {
+    font-family: 'Open Sans', Arial, sans-serif;
+    background-color: #f8f9fa;
+    margin: 0;
+    padding: 20px;
+}
+
+.container {
+    max-width: 800px;
+    margin: auto;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+}
+
+header {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+h1 {
+    margin: 10px 0;
+}
+
+h2 {
+    color: #343a40;
+    margin: 15px 0;
+    font-weight: bold;
+}
+
+.prediction, .details {
+    margin-bottom: 20px;
+    padding: 15px;
+    background-color: #e9ecef;
+    border-left: 5px solid maroon;
+    border-radius: 5px;
+}
+
+ul {
+    list-style-type: disc;
+    margin-left: 20px;
+}
+
+li {
+    margin-bottom: 10px;
+    font-size: 15PX;
+}
+
+p {
+    margin: 10px 0;
+    font-size: 20PX;
+    color: maroon;
+    font-weight: bold;
+}
+
+b {
+    color: maroon;
+}
+
+@media (max-width: 600px) {
+    .container {
+        padding: 15px;
+    }
+
+    h1 {
+        font-size: 30px;
+    }
+
+    h2 {
+        font-size: 24px;
+    }
+}
+
+</style>
+
+{% if prediction_text == 'NO' %}
+
+
+
+
+<div class="container">
+  <header>
+      <h1><b style="font-size: 40px; color: rgb(128, 0, 0);">UPI Fraud Prediction</b></h1>
+      <h2><b>Fraud Detection Result</b></h2>
+  </header>
+  <main>
+      <section class="prediction">
+          <h2><b>Prediction Details:</b></h2>
+          <p ><b style="color: green;">Result: No Fraud Detected</b></p>
+          <ul>
+              <li>The transaction has been verified and is deemed secure.</li>
+              <li>All parameters checked are within normal ranges.</li>
+          </ul>
+      </section>
+      <section class="details">
+          <h2><b>Details:</b></h2>
+          <p>The transaction analysis indicates that no fraudulent activity is detected based on the following criteria:</p>
+          <ul>
+              <li>Transaction amount falls within usual spending limits.</li>
+              <li>No irregular patterns observed in transaction history.</li>
+              <li>Sender and receiver information matches known profiles.</li>
+          </ul>
+          <p>Additional Notes:</p>
+          <ul>
+              <li>Continue to monitor transactions for unusual activity.</li>
+              <li>Keep security settings updated for enhanced protection.</li>
+          </ul>
+          <p>Best Practices:</p>
+          <ul>
+              <li>Enable transaction alerts for immediate notifications.</li>
+              <li>Regularly review bank statements for accuracy.</li>
+              <li>Use strong passwords and two-factor authentication where possible.</li>
+          </ul>
+      </section>
+  </main>
+</div>
+
+
+  {% elif prediction_text == 'YES' %}
+
+  <div class="container">
+    <header>
+        <h1><b style="font-size: 40px; color: rgb(128, 0, 0);">UPI Fraud Prediction</b></h1>
+        <h2><b>Fraud Detection Result</b></h2>
+    </header>
+    <main>
+        <section class="prediction">
+            <h2><b>Prediction Details:</b></h2>
+            <p><b>Result:</b> Yes, this is a fraud.</p>
+        </section>
+        <section class="details">
+            <h2><b>Fraud Details:</b></h2>
+            <p>The transaction has been flagged as fraudulent based on various indicators, including:</p>
+            <ul>
+                <li>Unusual transaction amount exceeding average spending.</li>
+                <li>Frequent transactions from the same account within a short time.</li>
+                <li>Transactions made from different geographical locations in quick succession.</li>
+            </ul>
+            <p>Prevention strategies:</p>
+            <ul>
+                <li>Regularly monitor account statements for unauthorized transactions.</li>
+                <li>Enable transaction alerts for immediate notifications.</li>
+                <li>Use strong, unique passwords for UPI accounts and change them regularly.</li>
+            </ul>
+            <p>Precautions to avoid fraud:</p>
+            <ul>
+                <li>Avoid sharing personal information or transaction details over phone or email.</li>
+                <li>Be cautious of suspicious links or messages related to financial transactions.</li>
+            </ul>
+            <p>Recommended actions:</p>
+            <ul>
+                <li>Immediately report the fraudulent transaction to your bank or UPI service provider.</li>
+                <li>Change your account passwords and enable two-factor authentication.</li>
+                <li>Monitor your accounts closely for any further suspicious activity.</li>
+            </ul>
+            <p>Common causes of UPI fraud:</p>
+            <ul>
+                <li>Phishing attacks targeting user credentials.</li>
+                <li>Compromised devices or software vulnerabilities.</li>
+                <li>Social engineering tactics employed by fraudsters.</li>
+            </ul>
+        </section>
+    </main>
+</div>
+
+  
+  
+  
+
+
+        
+        
+{% endif %}      
+{% endblock content %}
+

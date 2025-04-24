@@ -1,0 +1,108 @@
+{% extends 'users/base.html' %}
+{% block content %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            background-color: #a5d7ff;
+            font-family: 'Times New Roman', Times, serif;
+          }
+        a {
+            font-size: 15px;
+        }
+        
+        h2 {
+            text-align: center;
+            color: #2d2d2d;
+            margin-top: 20px;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
+        }
+        
+        table {
+            width: 90%;
+            margin: 20px auto;
+            border-collapse: separate;
+            border-spacing: 0;
+            background: #fff;
+            border: 1px solid #1f1f1f;
+            border-radius: 8px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+        }
+        
+        table th,
+        table td {
+            border: 1px solid #1f1f1f;
+            padding: 15px;
+            text-align: center;
+            font-size: 13px;
+            background: linear-gradient(145deg, #ffffff, #f2f2f2);
+            box-shadow: 0 2px 0 rgba(255, 255, 255, 0.8) inset, 0 2px 2px rgba(0, 0, 0, 0.1);
+        }
+        
+        table th {
+            background-color: #5a472f;
+            color: #ffffff;
+            background: linear-gradient(145deg, #1c1744, #4f5a99);
+            box-shadow: inset 0 -3px 5px rgba(0, 0, 0, 0.2);
+        }
+        
+        table tr:nth-child(even) {
+            background-color: #f7f7f7;
+        }
+        
+        table tr:hover {
+            background-color: #eaeaea;
+            transition: background-color 0.3s ease;
+            transform: translateY(-2px);
+        }
+        
+        
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h3 style="color: rgb(0, 20, 109);">UPI Fraud Prediction Database</h3>
+        
+
+        <div class="table-responsive">
+            <table class="table table-bordered">
+                <tr>
+                    <th>Average Amount Transaction per Day</th>
+                    <th>Transaction Amount</th>
+                    <th>Is Declined</th>
+                    <th>Total Number of Declines per Day</th>
+                    <th>Is Foreign Transaction</th>
+                    <th>Is High Risk Country</th>
+                    <th>Daily Chargeback Avg Amount</th>
+                    <th>Six Month Avg Chargeback Amount</th>
+                    <th>Six Month Chargeback Frequency</th>
+                    <th>Output</th>
+                </tr>
+                {% for record in data %}
+                <tr>
+                    <td>{{ record.AverageAmountTransactionDay }}</td>
+                    <td>{{ record.TransactionAmount }}</td>
+                    <td>{{ record.Is_declined }}</td>
+                    <td>{{ record.TotalNumberOfDeclinesDay }}</td>
+                    <td>{{ record.isForeignTransaction }}</td>
+                    <td>{{ record.isHighRiskCountry }}</td>
+                    <td>{{ record.DailyChargebackAvgAmt }}</td>
+                    <td>{{ record.Six_MonthAvgChbkAmt }}</td>
+                    <td>{{ record.Six_MonthChbkFreq }}</td>
+                    <td>{{ record.isFradulent }}</td>
+                </tr>
+                {% endfor %}
+             </table>
+        </div>
+    </div>
+
+        
+    
+</body>
+</html>
+
+{% endblock content %}
