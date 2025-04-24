@@ -1,18 +1,21 @@
-# Django-registration-and-login-system
-This web app has been developed using the popular Django framework and Bootstrap for the frontend. My motivation to build this project is so that I can learn about Django and tighten up my skills. This mini-app can be easily integrated into a bigger system project that needs to have a registration and login system.
+UPI Fraud Detection Using Machine Learning
+This project aims to detect fraudulent transactions in UPI systems using machine learning algorithms such as Random Forest, Naive Bayes, Decision Tree, Logistic Regression, and Linear Regression. The system analyzes transaction patterns and user behavior to classify whether a receiver is fraudulent or not. If fraud is detected, an alert is triggered with an explanation. The frontend is built using HTML, CSS, Bootstrap, and JavaScript, while the backend is powered by Django with SQLite3 as the database.
 
 ### Basic Features of The App
     
 * Register – Users can register and create a new profile
 * Login - Registered users can login using username and password
-* Social Apps Login – Users can login using their GitHub or Google account
 * User Profile - Once logged in, users can create and update additional information such as avatar and bio in the profile page
 * Update Profile – Users can update their information such as username, email, password, avatar and bio
 * Remember me – Cookie Option, users don’t have to provide credentials every time they hit the site
 * Forgot Password – Users can easily retrieve their password if they forget it 
-* Admin Panel – admin can CRUD users
+![Screenshot (441)](https://github.com/user-attachments/assets/00bba8ed-96cf-4d2a-a4cf-a9c7a842ae47)
+![Screenshot (448)](https://github.com/user-attachments/assets/0d00649f-9d48-4f9c-8368-4463ed04f570)
+![Screenshot (449)](https://github.com/user-attachments/assets/e6192bfa-135b-4655-9613-8c98e2fb2401)
+![Screenshot (450)](https://github.com/user-attachments/assets/6cf622d6-512b-4c5c-83dc-1462c27ab58f)
+![Screenshot (451)](https://github.com/user-attachments/assets/cc7ff7de-1f8f-445e-b827-02c912390f0c)
 
-![ScreenShot](https://user-images.githubusercontent.com/66206865/131695930-648342b0-010b-44b2-a419-15ad54d47869.png)
+
 
 ## Tutorial
 [Here](https://dev.to/earthcomfy/series/14274) is a tutorial on how to build this project.
